@@ -55,7 +55,7 @@ Status do projeto
 
 Acesso ao projeto
 
-(Adicionar aqui o link do GitHub Pages quando estiver publicado)
+https://mariahsoares.github.io/cafeteria-portfolio/
 
 ---
 
