@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela principal</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1>Aroma Matcha</h1>
-        
-    </header>
 
+<body>
+    <section class="video">
+        <video autoplay muted loop playsinline class="video-cabecalho"> <!--Playsinline: Evita que alguns celulares abram o vídeo em tela cheia-->
+            <source src="./video-cabecalho.mp4" type="video/mp4">
+        </video> 
+        
+        <header>
+            <h1 class="logo">
+                Aroma <br>
+                Matcha
+            </h1>
+
+            <nav class="menu-desktop">
+                <a href="#">Home</a>
+                <a href="#">Cardápio</a>
+                <a href="#">Sobre</a>
+                <a href="#">Playlist</a>
+                <a href="#">Encomenda</a>
+                <a href="#">contato</a>
+            </nav>
+
+            <nav class="social-desktop">
+                <a href="https://www.instagram.com" target="_blank">
+                    <i class="fa-brands fa-instagram"></i> <!--ícone instagram-->
+                </a>
+
+                <a href="https://www.tiktok.com" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i> <!--ícone tiktok-->
+                </a>
+
+                <a href="https://www.whatsapp.com" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> <!--ícone whatsapp-->
+                </a>
+            </nav>
+            
+    </section>
 
     <main>
 
@@ -22,4 +55,5 @@
 
     </footer>
 </body>
+
 </html>
