@@ -1,0 +1,89 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fcf2e6;
+}
+
+/* --- VIDEO --- */
+
+.video {
+    height: 100vh; /* A altura do elemento será igual a 100% da altura visível da tela */
+    position: relative; 
+    overflow: hidden; /* Se algo passa dos limites da caixa essa função esconde */
+}
+
+.video-cabecalho {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover; /* Preenche todo o espaço disponível, mesmo que precise cortar partes da imagem */
+    z-index: 1; /* define quem fica na frente/atrás, aqui está atrás*/
+}
+
+/* --- HEADER --- */
+
+header {
+    position: relative;
+    z-index: 2; /*vai ficar por cima do video*/
+
+    padding: 50px 70px;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+}
+
+/* --- LOGO --- */
+
+.logo {
+   color: #FCF2E6;
+   font-size: 36px; 
+   font-weight: 700; /*Espessura*/
+}
+
+/* --- MENU --- */
+
+.menu-desktop {
+    display: flex; 
+    justify-content: center; /* decide onde vai se posicionar os itens */
+    align-items: center;
+    gap: 85px;
+}
+
+.menu-desktop a {
+    color: #FCF2E6;
+    text-decoration: none; /*remove a linha embaixo do link*/
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.menu-desktop a:hover {
+    color: #AB7743;
+}
+
+.social-desktop {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+}
+
+.social-desktop a {
+    color: #FCF2E6;
+    font-size: 32px;
+    transform: 0.3s;
+}
+
+.social-desktop a:hover {
+    color: #AB7743;
+}
+
