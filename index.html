@@ -5,22 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela principal</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Intro da logo -->
+    <div class="intro">
+        <h1 class="intro-logo">
+            Aroma <br>
+            Matcha
+        </h1>
+    </div>
+
+    <!-- Video atrás -->
     <section class="video">
-        <video autoplay muted loop playsinline class="video-cabecalho"> <!--Playsinline: Evita que alguns celulares abram o vídeo em tela cheia-->
+        <video muted loop playsinline class="video-cabecalho" id="video-cabecalho">
+            <!--Playsinline: Evita que alguns celulares abram o vídeo em tela cheia-->
             <source src="./video-cabecalho.mp4" type="video/mp4">
-        </video> 
-        
+        </video>
+
+
+        <div class="overlay"></div> <!-- Camada escura -->
+
+
         <header>
+            <!-- Logo -->
             <h1 class="logo">
                 Aroma <br>
                 Matcha
             </h1>
 
+            <!-- Menu -->
             <nav class="menu-desktop">
                 <a href="#">Home</a>
                 <a href="#">Cardápio</a>
@@ -30,6 +47,7 @@
                 <a href="#">contato</a>
             </nav>
 
+            <!-- Ícone Redes sociais -->
             <nav class="social-desktop">
                 <a href="https://www.instagram.com" target="_blank">
                     <i class="fa-brands fa-instagram"></i> <!--ícone instagram-->
@@ -42,11 +60,14 @@
                 <a href="https://www.whatsapp.com" target="_blank">
                     <i class="fa-brands fa-whatsapp"></i> <!--ícone whatsapp-->
                 </a>
+
             </nav>
 
         </header>
-        
+
     </section>
+
+    <script src="script.js"></script>
 
     <main>
 

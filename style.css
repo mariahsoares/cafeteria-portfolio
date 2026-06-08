@@ -8,6 +8,36 @@ body {
     background: #fcf2e6;
 }
 
+/*--- INTRO ---*/
+
+.intro { /**/
+    position: fixed;
+    inset: 0;
+
+    background: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    animation: introFade 3s forwards;
+}
+
+.intro-logo { /**/
+    color: #FCF2E6;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 9rem;
+    font-weight: 700;
+
+    line-height: 0.9;
+    text-align: center;
+
+    animation: logoFade 3s forwards;
+}
+
 /* --- VIDEO --- */
 
 .video {
@@ -28,6 +58,20 @@ body {
     z-index: 1; /* define quem fica na frente/atrás, aqui está atrás*/
 }
 
+/*--- OVERLAY ---*/
+
+.overlay { /**/
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    z-index: 1;
+
+    animation: escurecerVideo 2s forwards;
+    animation-delay: 7.2s;
+}
+
 /* --- HEADER --- */
 
 header {
@@ -39,6 +83,11 @@ header {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
+
+    opacity: 0; /**/
+
+    animation: aparecerHeader 3s forwards; /**/
+    animation-delay: 7.2s; /**/
 }
 
 /* --- LOGO --- */
@@ -47,6 +96,8 @@ header {
    color: #FCF2E6;
    font-size: 36px; 
    font-weight: 700; /*Espessura*/
+
+   line-height: 1; /**/
 }
 
 /* --- MENU --- */
@@ -70,6 +121,8 @@ header {
     color: #AB7743;
 }
 
+/*--- REDES SOCIAIS ---*/
+
 .social-desktop {
     display: flex;
     justify-content: flex-end;
@@ -87,3 +140,60 @@ header {
     color: #AB7743;
 }
 
+/*--- ANIMAÇÕES ---*/
+
+@keyframes logoFade { /**/
+
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes introFade { /**/
+
+    0%,
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+@keyframes aparecerHeader { /**/
+
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes escurecerVideo { /**/
+
+    from {
+        background: rgba(0, 0, 0, 0.15);
+    }
+
+    to {
+        background: rgba(0, 0, 0, 0.50); /*Esse ultimo numero é o tanto que a imagem vai escurecer*/
+    }
+}
