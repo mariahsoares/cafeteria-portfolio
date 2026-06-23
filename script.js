@@ -1,3 +1,4 @@
+//Video cabeçalho
 window.addEventListener("load", () => {
 
     const video = document.getElementById("video-cabecalho");
