@@ -66,7 +66,7 @@ body {
 
     background: rgba(0, 0, 0, 0.15);
 
-    z-index: 1;
+    z-index: 2;
 
     animation: escurecerVideo 2s forwards;
     animation-delay: 7.2s;
@@ -76,7 +76,7 @@ body {
 
 header {
     position: relative;
-    z-index: 2; /*vai ficar por cima do video*/
+    z-index: 1500; /*vai ficar por cima do video*/
 
     padding: 50px 70px;
 
@@ -121,7 +121,7 @@ header {
     color: #AB7743;
 }
 
-/*--- REDES SOCIAIS ---*/
+/*--- REDES SOCIAIS DESKTOP ---*/
 
 .social-desktop {
     display: flex;
@@ -138,6 +138,167 @@ header {
 
 .social-desktop a:hover {
     color: #AB7743;
+}
+
+/*--- REDES SOCIAIS MOBILE ---*/
+.menu-mobile {
+    display: none;
+
+    width: 40px;
+    height: 40px;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+
+    position: fixed;
+
+    top: 50px;
+    right: 70px;
+
+    z-index: 99999;
+}
+
+/*--- OS DOIS RISQUINHOS ---*/
+.menu-mobile span {
+    position: absolute;
+
+    width: 100%;
+    height: 3px;
+
+    background: #FCF2E6;
+
+    left: 0;
+
+    transition: all 0.4s ease;
+}
+
+/*--- PRIMEIRO RISCO ---*/
+.menu-mobile span:first-child {
+    top: 12px;
+}
+
+/*--- SEGUNDO RISCO ---*/
+.menu-mobile span:last-child {
+    bottom: 12px;
+}
+
+/*--- QUANDO ABRIR ---*/
+.menu-mobile.ativo span:first-child {
+    transform: rotate(45deg);
+    top: 18px;
+}
+
+.menu-mobile.ativo span:last-child {
+    transform: rotate(-45deg);
+    bottom: 18px;
+}
+
+.menu-mobile-links a {
+    display: block;
+    margin: 18px 0;
+
+    color: #2b2b2b;
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    opacity: 0;
+    transform: translateX(20px);
+
+    transition: 0.4s ease;
+}
+
+.sidebar.ativo .menu-mobile-links a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sidebar.ativo .menu-mobile-links a:nth-child(1) { transition-delay: 0.4s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(2) { transition-delay: 0.5s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(3) { transition-delay: 0.6s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(4) { transition-delay: 0.7s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(5) { transition-delay: 0.8s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(6) { transition-delay: 0.9s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(7) { transition-delay: 1.0s; }
+
+/*--- SIDEBAR ---*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px;
+
+    width: 320px;
+    height: 100vh;
+
+    background: rgba(255, 255, 255, 0.75);
+     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+
+    z-index: 1000;
+
+    transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1),
+                opacity 0.4s ease;
+    
+    opacity: 0;
+}
+
+.sidebar.ativo {
+    right: 0;
+    opacity: 1;
+    
+}
+
+.overlay-mobile {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.5s ease;
+
+    z-index: 999;
+}
+
+.overlay-mobile.ativo {
+    opacity: 1;
+    pointer-events: auto;
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+/*--- RESPONSIVO ---*/
+@media (max-width: 950px) {
+
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .menu-desktop,
+    .social-desktop {
+        display: none;
+    }
+
+    .menu-mobile {
+        display: flex;
+    }
+
+    .logo {
+        justify-self: start;
+        font-size: 28px;
+    }
+
 }
 
 /*--- ANIMAÇÕES ---*/
