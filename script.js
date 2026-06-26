@@ -21,6 +21,7 @@ function toggleMenu() {
     menuMobile.classList.toggle("ativo");
     sidebar.classList.toggle("ativo");
     overlay.classList.toggle("ativo");
+    document.body.classList.toggle("menu-aberto");
 }
 
 // abrir/fechar pelo botão
@@ -34,5 +35,19 @@ document.addEventListener("keydown", (e) => {
         menuMobile.classList.remove("ativo");
         sidebar.classList.remove("ativo");
         overlay.classList.remove("ativo");
+        document.body.classList.remove("menu-aberto");
     }
+});
+
+window.addEventListener("resize", () => {
+
+    if (window.innerWidth > 950) {
+
+        menuMobile.classList.remove("ativo");
+        sidebar.classList.remove("ativo");
+        overlay.classList.remove("ativo");
+        document.body.classList.remove("menu-aberto");
+
+    }
+
 });

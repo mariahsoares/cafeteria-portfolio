@@ -8,6 +8,7 @@ body {
     background: #fcf2e6;
 }
 
+/*------------------------- DESKTOP --------------------------------*/
 /*--- INTRO ---*/
 
 .intro { /**/
@@ -78,10 +79,12 @@ header {
     position: relative;
     z-index: 1500; /*vai ficar por cima do video*/
 
-    padding: 50px 70px;
+    padding: 50px clamp(20px, 5vw, 70px);
 
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: auto 1fr auto;
+    column-gap: clamp(24px, 3vw, 60px);
+
     align-items: center;
 
     opacity: 0; /**/
@@ -94,10 +97,14 @@ header {
 
 .logo {
    color: #FCF2E6;
-   font-size: 36px; 
-   font-weight: 700; /*Espessura*/
 
+   font-size: clamp(28px, 2vw, 36px);
+
+   font-weight: 700; /*Espessura*/
    line-height: 1; /**/
+
+   transition: color 0.3s ease;
+
 }
 
 /* --- MENU --- */
@@ -105,16 +112,22 @@ header {
 .menu-desktop {
     display: flex; 
     justify-content: center; /* decide onde vai se posicionar os itens */
+    width: 100%;
     align-items: center;
-    gap: 85px;
+
+    gap: clamp(20px, 3vw, 85px);
 }
 
 .menu-desktop a {
     color: #FCF2E6;
     text-decoration: none; /*remove a linha embaixo do link*/
-    font-size: 20px;
+
+    font-size: clamp(14px, 1.1vw, 20px);
+
     font-weight: 500;
     transition: 0.3s;
+
+    white-space: nowrap;
 }
 
 .menu-desktop a:hover {
@@ -127,18 +140,23 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 25px;
+
+    gap: clamp(12px, 1.5vw, 25px);
 }
 
 .social-desktop a {
     color: #FCF2E6;
-    font-size: 32px;
+
+    font-size: clamp(24px, 1.8vw, 32px);
+
     transform: 0.3s;
 }
 
 .social-desktop a:hover {
     color: #AB7743;
 }
+
+/*--------------------------- MOBILE -------------------------------*/
 
 /*--- REDES SOCIAIS MOBILE ---*/
 .menu-mobile {
@@ -174,6 +192,10 @@ header {
     transition: all 0.4s ease;
 }
 
+.menu-mobile.ativo span { /*muda para marrom o X*/
+    background: #3b2a22;
+}
+
 /*--- PRIMEIRO RISCO ---*/
 .menu-mobile span:first-child {
     top: 12px;
@@ -190,51 +212,102 @@ header {
     top: 18px;
 }
 
+/*--- PARA ARRUMAR OS LINKS (Home, Product Line..)---*/
 .menu-mobile.ativo span:last-child {
     transform: rotate(-45deg);
     bottom: 18px;
 }
 
+.menu-mobile-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    width: 100%;
+}
+
 .menu-mobile-links a {
     display: block;
-    margin: 18px 0;
+    margin: 0;
 
-    color: #2b2b2b;
+    color: #3b2a22;
     text-decoration: none;
 
-    font-size: 18px;
     font-weight: 500;
 
+    transition: all 0.3s ease;
+
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateY(15px);
+    transition: all 0.3s ease;
 
-    transition: 0.4s ease;
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 1px;
+
+    position: relative;
+    text-decoration: none;
 }
 
-.sidebar.ativo .menu-mobile-links a {
-    opacity: 1;
-    transform: translateX(0);
+.menu-mobile-links a:hover {
+    color: #AB7743;
 }
 
-.sidebar.ativo .menu-mobile-links a:nth-child(1) { transition-delay: 0.4s; }
-.sidebar.ativo .menu-mobile-links a:nth-child(2) { transition-delay: 0.5s; }
-.sidebar.ativo .menu-mobile-links a:nth-child(3) { transition-delay: 0.6s; }
-.sidebar.ativo .menu-mobile-links a:nth-child(4) { transition-delay: 0.7s; }
-.sidebar.ativo .menu-mobile-links a:nth-child(5) { transition-delay: 0.8s; }
-.sidebar.ativo .menu-mobile-links a:nth-child(6) { transition-delay: 0.9s; }
-.sidebar.ativo .menu-mobile-links a:nth-child(7) { transition-delay: 1.0s; }
+.menu-mobile-links a::after {
+    content: "";
 
-/*--- SIDEBAR ---*/
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+
+    transition: all 0.3s ease;
+
+    width: 0;
+    height: 2px;
+
+    background: #AB7743;
+    
+    transform: translateX(-50%);
+}
+
+.menu-mobile-links a:hover::after {
+    width: 100%;
+}
+
+/*--- ÍCONES ---*/
+.social-mobile {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+    gap: 25px;
+    border-top: 1px solid rgba(0,0,0,.15);
+    padding-top: 35px;
+}
+
+.social-mobile a {
+    color: #3b2a22;
+    font-size: 28px;
+    transition: .3s;
+}
+
+.social-mobile a:hover {
+    color: #AB7743;
+
+    transform: translateY(-3px);
+}
+
+/*--- BARRA LATERAL ---*/
 .sidebar {
     position: fixed;
     top: 0;
-    right: -320px;
+    right: -350px;
 
-    width: 320px;
+    width: 350px;
     height: 100vh;
 
     background: rgba(255, 255, 255, 0.75);
-     backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
     box-shadow: -10px 0 30px rgba(0,0,0,0.15);
@@ -245,6 +318,19 @@ header {
                 opacity 0.4s ease;
     
     opacity: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .sidebar.ativo {
@@ -252,6 +338,19 @@ header {
     opacity: 1;
     
 }
+
+.sidebar.ativo .menu-mobile-links a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sidebar.ativo .menu-mobile-links a:nth-child(1) { transition-delay: 0.4s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(2) { transition-delay: 0.5s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(3) { transition-delay: 0.6s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(4) { transition-delay: 0.7s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(5) { transition-delay: 0.8s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(6) { transition-delay: 0.9s; }
+.sidebar.ativo .menu-mobile-links a:nth-child(7) { transition-delay: 1.0s; }
 
 .overlay-mobile {
     position: fixed;
@@ -278,6 +377,8 @@ header {
     -webkit-backdrop-filter: blur(6px);
 }
 
+/*---------------------------- @media ---------------------------------*/
+
 /*--- RESPONSIVO ---*/
 @media (max-width: 950px) {
 
@@ -290,13 +391,37 @@ header {
         display: none;
     }
 
+    .logo {
+        justify-self: start;
+        font-size: 28px;
+    }
+
     .menu-mobile {
         display: flex;
     }
 
-    .logo {
-        justify-self: start;
-        font-size: 28px;
+    .sidebar {
+        width: 350px;
+        right: -350px;
+    }
+}
+
+@media (max-width: 700px) {
+    body.menu-aberto .logo {
+        color: #3b2a22;
+    }
+
+    .menu-mobile-links a {
+        font-size: 24px;
+    }
+
+    .social-mobile a {
+        font-size: 32px;
+    }
+
+    .sidebar {
+        width: 100%;
+        right: -100%;
     }
 
 }
