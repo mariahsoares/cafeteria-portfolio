@@ -176,6 +176,18 @@ header {
     right: clamp(16px, 6vw, 70px);
 
     z-index: 99999;
+
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.menu-mobile:focus,
+.menu-mobile:active,
+.menu-mobile:focus-visible {
+    outline: none;
+    box-shadow: none;
 }
 
 /*--- OS DOIS RISQUINHOS ---*/
