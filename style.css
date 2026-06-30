@@ -411,6 +411,10 @@ header {
         color: #3b2a22;
     }
 
+    .intro-logo {
+        font-size: 60px;
+    }
+
     .menu-mobile-links a {
         font-size: 24px;
     }
