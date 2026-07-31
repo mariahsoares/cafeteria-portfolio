@@ -499,3 +499,97 @@ header {
         background: rgba(0, 0, 0, 0.50); /*Esse ultimo numero é o tanto que a imagem vai escurecer*/
     }
 }
+
+/* ========================================================================
+                                PRESENTATION
+=========================================================================== */
+
+.presentation {
+    width: 100%;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+
+    align-items: center;
+
+    gap: clamp(50px, 7vw, 140px);
+
+    padding:
+        clamp(80px, 10vw, 160px)
+        clamp(24px, 7vw, 90px);
+}
+
+.presentation-image {
+    display: flex;
+    justify-content: center;
+}
+
+.presentation-image img {
+    width: 100%;
+    max-width: clamp(380px, 40vw, 620px);
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.presentation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: clamp(20px, 2vw, 36px);
+
+    max-width: clamp(360px, 38vw, 620px);
+}
+
+.presentation-content h2 {
+    margin-bottom: 30px;color: #3B2A22;
+
+    font-size: clamp(2.2rem, 3vw, 4rem);
+
+    line-height: 1.1;
+
+    font-weight: 700;
+}
+
+.presentation-content p {
+    color: #5F5148;
+
+    font-size: clamp(1rem, 1.05vw, 1.15rem);
+
+    line-height: 1.9;
+}
+
+.btn-app {
+    padding:
+        clamp(16px, 1vw, 20px)
+        clamp(34px, 3vw, 52px);
+
+    border: none;
+    border-radius: 999px;
+
+    background: #3B2A22;
+
+    color: #FCF2E6;
+
+    font-size: clamp(.95rem, 1vw, 1.05rem);
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .35s ease,
+        transform .35s ease;
+}
+
+.btn-app:hover {
+
+    background: #5B4032;
+
+    transform: translateY(-3px);
+}
