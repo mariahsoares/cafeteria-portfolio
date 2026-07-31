@@ -395,7 +395,7 @@ header {
 @media (max-width: 950px) {
 
     header {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     .menu-desktop,
@@ -415,6 +415,41 @@ header {
     .sidebar {
         width: 350px;
         right: -350px;
+    }
+
+
+    /* --- APRESENTAÇÃO --- */
+
+    .presentation {
+        grid-template-columns: minmax(0, 1fr);
+
+        grid-template-areas:
+            "image"
+            "content";
+
+        gap: clamp(40px, 6vw, 70px);
+
+        padding:
+            clamp(70px, 9vw, 100px)
+            clamp(24px, 6vw, 70px);
+    }
+
+    .presentation-image {
+        width: 100%;
+    }
+
+    .presentation-image img {
+        width: 100%;
+        max-width: 700px;
+
+        margin: 0 auto;
+    }
+
+    .presentation-content {
+        width: 100%;
+        max-width: 700px;
+
+        margin: 0 auto;
     }
 }
 
@@ -440,6 +475,23 @@ header {
         right: -100%;
     }
 
+    /* --- APRESENTAÇÃO --- */
+
+    .presentation {
+        gap: clamp(30px, 7vw, 45px);
+
+        padding:
+            clamp(55px, 10vw, 75px)
+            clamp(20px, 6vw, 30px);
+    }
+
+    .presentation-image img {
+        max-width: 100%;
+    }
+
+    .presentation-content {
+        max-width: 100%;
+    }
 }
 
 /*--- ANIMAÇÕES ---*/
@@ -504,12 +556,15 @@ header {
                                 PRESENTATION
 =========================================================================== */
 
+/* --- APRESENTAÇÃO --- */
+
 .presentation {
     width: 100%;
     min-height: 100vh;
 
     display: grid;
-    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "image content";
 
     align-items: center;
 
@@ -520,14 +575,22 @@ header {
         clamp(24px, 7vw, 90px);
 }
 
+
+/* --- IMAGEM --- */
+
 .presentation-image {
+    grid-area: image;
+
+    width: 100%;
+    min-width: 0;
+
     display: flex;
     justify-content: center;
 }
 
 .presentation-image img {
     width: 100%;
-    max-width: clamp(380px, 40vw, 620px);
+    max-width: 100%;
 
     aspect-ratio: 1 / 1;
 
@@ -536,7 +599,15 @@ header {
     display: block;
 }
 
+
+/* --- CONTEÚDO --- */
+
 .presentation-content {
+    grid-area: content;
+
+    width: 100%;
+    min-width: 0;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -547,7 +618,9 @@ header {
 }
 
 .presentation-content h2 {
-    margin-bottom: 30px;color: #3B2A22;
+    margin-bottom: 30px;
+
+    color: #3B2A22;
 
     font-size: clamp(2.2rem, 3vw, 4rem);
 
@@ -563,6 +636,9 @@ header {
 
     line-height: 1.9;
 }
+
+
+/* --- BOTÃO --- */
 
 .btn-app {
     padding:
@@ -588,7 +664,6 @@ header {
 }
 
 .btn-app:hover {
-
     background: #5B4032;
 
     transform: translateY(-3px);
